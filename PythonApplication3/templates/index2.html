@@ -1,0 +1,62 @@
+<html>
+<head>
+    <title>Title</title>
+</head>
+<body>
+    <h1>Объявление переменных</h1>
+    {% set fruit = 'apple' %}
+    <p>{{ fruit }}</p>
+
+    <h1>Инструкция if</h1>
+    {% if user %}
+    {% if user.newbie %}
+    <p>Display newbie stagesp</p>
+    {% elif user.pro %}
+    <p>Display pro stagesp</p>
+    {% elif user.ninja %}
+    <p>Display ninja stagesp</p>
+    {% else %}
+    <p>You have completed all statesp</p>
+    {% endif %}
+    {% else %}
+    <p>User is not definedp</p>
+    {% endif %}
+    <h1>Цикл for</h1>
+    {% set employee = { 'name': 'tom', 'age': 25, 'designation': 'Manager' } %}
+
+    <ul>
+        {% for key, value in employee.items() %}
+        <li>{{ key }} : {{ value }}</li>
+        {% endfor %}
+    </ul>
+
+    {% set user_list = [] %}
+
+    <ul>
+        {% for user in user_list %}
+        <li>{{ user }}</li>
+        {% else %}
+        <li>user_list is empty</li>
+        {% endfor %}
+    </ul>
+
+    <h1>Макросы</h1>
+    {% macro custom_renderer(para) %}
+    <p>{{ para }}</p>
+    <p>varargs: {{ varargs }}</p>
+    <p>kwargs: {{ kwargs }}</p>
+    {%  endmacro  %}
+
+    {{ custom_renderer("some content", "apple", name='spike', age=15) }}
+
+    <h1>Экранирование</h1>
+    {% set html = "Escaping in Jinja" %}
+    {{ html|safe }}
+
+    <h1>Вложенные шаблоны</h1>
+    {% include 'nav.html' %}
+
+
+
+</body>
+</html>

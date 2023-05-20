@@ -1,0 +1,48 @@
+<html>
+<head>
+    <title>Привет</title>
+</head>
+<body>
+    <h1>{{("1","2","3")[2]}}</h1>
+    <h1>{{name}}</h1>
+    <h2>{{age}}</h2>
+    <h3>{{profession}}</h3>
+    <p>Name: </p>
+    <h1>
+        {% if user %}
+        {% if user.newbie %}
+        <p>
+            Display newbie stages
+        </p>
+        {% elif user.pro %}
+
+        <p>
+            Display pro stagesp>
+            {% elif user.ninja %}
+        <p>
+            Display ninja stagesp>
+            {% else %}
+        <p>
+            You have completed all statesp>
+            {% endif %}
+            {% else %}
+        <p>
+            User is not defined
+        </p>
+        {% endif %}
+    </h1>
+    <h1>
+        <p>{{ 10 + 3 }}</p>
+        <p>{{ 10 - 3 }}</p>
+        <p>{{ 10 // 3 }}</p>
+        <p>{{ 10 / 3 }}</p>
+        <p>{{ 10 % 3 }}</p>
+        <p>{{ 10 ** 3 }}</p>
+    </h1>
+    <h1>
+        {%set var = "hello" %}
+        {{var}}
+    </h1>
+
+</body>
+</html>
